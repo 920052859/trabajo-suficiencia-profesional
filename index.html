@@ -92,6 +92,32 @@
     background:linear-gradient(90deg,var(--accent),var(--accent2));
   }
   .big-number{font-size:clamp(4rem,15vw,10rem); font-weight:bold; color:var(--accent2); opacity:.9;}
+  .res-group{width:100%; max-width:1000px; margin-top:2.5rem; text-align:left;}
+  .res-group h3{
+    color:var(--accent2); font-size:1.2rem; margin-bottom:1rem;
+    border-bottom:1px solid #1f2937; padding-bottom:.5rem;
+  }
+  .res-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-bottom:2.5rem;}
+  .res-item{
+    background:var(--bg2);
+    border:1px solid #1f2937;
+    border-radius:12px;
+    padding:1.1rem 1.3rem;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    gap:.35rem;
+    opacity:0;
+    transform:translateY(30px);
+    transition:border-color .2s, transform .2s;
+  }
+  .res-item:hover{border-color:var(--accent); transform:translateY(-3px) !important;}
+  .res-item .res-type{
+    font-size:.7rem; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--accent2); font-weight:bold;
+  }
+  .res-item .res-title{color:var(--text); font-size:.95rem; font-weight:bold;}
+  .res-item .res-desc{color:var(--muted); font-size:.82rem; margin:0;}
   footer{
     padding:3rem 1rem;
     text-align:center;
@@ -147,6 +173,49 @@
   </div>
 </section>
 
+<section id="recursos">
+  <h2>Recursos del Curso</h2>
+  <p>Material de apoyo organizado por sesión: sílabos, guías docentes, presentaciones y plantillas.</p>
+
+  <div class="res-group">
+    <h3>📚 Material General</h3>
+    <div class="res-list">
+      <a class="res-item" href="recursos/general/syllabus-herramientas-digitales.docx"><span class="res-type">Sílabo</span><span class="res-title">Syllabus: Herramientas Digitales para la Investigación</span><p class="res-desc">Programa completo del curso de herramientas digitales.</p></a>
+      <a class="res-item" href="recursos/general/silabo-tsp-modulo1-metodologia.docx"><span class="res-type">Sílabo</span><span class="res-title">Sílabo TSP – Módulo 1: Metodología</span><p class="res-desc">Programa del módulo de metodología de la investigación.</p></a>
+      <a class="res-item" href="recursos/general/programa-titulacion-tsp.docx"><span class="res-type">Programa</span><span class="res-title">Programa de Titulación Profesional por TSP</span><p class="res-desc">Detalle del programa de titulación por Trabajo de Suficiencia Profesional.</p></a>
+      <a class="res-item" href="recursos/general/estructura-tsp-2026.docx"><span class="res-type">Guía</span><span class="res-title">Estructura del Trabajo de Suficiencia Profesional 2026</span><p class="res-desc">Estructura oficial actualizada del TSP con formato APA 7.</p></a>
+      <a class="res-item" href="recursos/general/herramientas-digitales-investigacion.docx"><span class="res-type">Guía</span><span class="res-title">Herramientas Digitales para la Investigación</span><p class="res-desc">Recopilación de herramientas digitales aplicadas a la investigación.</p></a>
+      <a class="res-item" href="recursos/general/contenido-inspirado.pdf"><span class="res-type">PDF</span><span class="res-title">Contenido Inspirado</span><p class="res-desc">Material de referencia e inspiración para el desarrollo del trabajo.</p></a>
+      <a class="res-item" href="recursos/general/metodologia-investigacion-baena-2017.pdf"><span class="res-type">Libro</span><span class="res-title">Metodología de la Investigación – Baena (2017)</span><p class="res-desc">Texto base de metodología de la investigación científica.</p></a>
+      <a class="res-item" href="recursos/general/tesis-facil-2da-edicion.pdf"><span class="res-type">Libro</span><span class="res-title">Tesis Fácil – 2da Edición</span><p class="res-desc">Guía práctica para la elaboración de tesis paso a paso.</p></a>
+      <a class="res-item" href="recursos/general/mt616-inteligencia-artificial.pdf"><span class="res-type">PDF</span><span class="res-title">MT616 – Introducción a la Inteligencia Artificial</span><p class="res-desc">Material introductorio de IA aplicado a la investigación.</p></a>
+    </div>
+
+    <h3>🧩 Sesión 1 — Introducción a la IA aplicada a la Tesis</h3>
+    <div class="res-list">
+      <a class="res-item" href="recursos/sesion1/clase-u1-ia-tesis.pptx"><span class="res-type">PPT</span><span class="res-title">Clase U1: IA y Tesis</span><p class="res-desc">Presentación de la unidad 1: fundamentos de IA aplicados a la tesis.</p></a>
+      <a class="res-item" href="recursos/sesion1/guia-docente-u1-ia-tesis.docx"><span class="res-type">Guía Docente</span><span class="res-title">Guía Docente U1</span><p class="res-desc">Guía para el desarrollo de la unidad 1 en clase.</p></a>
+      <a class="res-item" href="recursos/sesion1/hoja-laboratorio-estudiante-u1.docx"><span class="res-type">Laboratorio</span><span class="res-title">Hoja de Laboratorio – Estudiante U1</span><p class="res-desc">Práctica guiada para el estudiante en la unidad 1.</p></a>
+      <a class="res-item" href="recursos/sesion1/acta-constitucion-plantilla.docx"><span class="res-type">Plantilla</span><span class="res-title">Acta de Constitución (plantilla)</span><p class="res-desc">Formato base para el acta de constitución del proyecto de tesis.</p></a>
+      <a class="res-item" href="recursos/sesion1/plantilla-tesis-apa.docx"><span class="res-type">Plantilla</span><span class="res-title">Plantilla de Tesis en APA</span><p class="res-desc">Plantilla Word lista con formato APA 7 para redactar la tesis.</p></a>
+      <a class="res-item" href="recursos/sesion1/estructura-elaboracion-tesis.pdf"><span class="res-type">Guía</span><span class="res-title">Estructura para la Elaboración de la Tesis</span><p class="res-desc">Esquema detallado paso a paso para elaborar la tesis.</p></a>
+      <a class="res-item" href="recursos/sesion1/dialnet-protocolizando-investigacion-cientifica.pdf"><span class="res-type">Artículo</span><span class="res-title">Protocolizando la Investigación Científica</span><p class="res-desc">Artículo académico (Dialnet) sobre protocolos de investigación.</p></a>
+    </div>
+
+    <h3>📖 Sesión 2 — Revisión de Literatura</h3>
+    <div class="res-list">
+      <a class="res-item" href="recursos/sesion2/clase-u2-revision-literatura.pptx"><span class="res-type">PPT</span><span class="res-title">Clase U2: Revisión de Literatura</span><p class="res-desc">Presentación sobre técnicas de revisión de literatura científica.</p></a>
+      <a class="res-item" href="recursos/sesion2/guia-docente-u2-revision-literatura.docx"><span class="res-type">Guía Docente</span><span class="res-title">Guía Docente U2</span><p class="res-desc">Guía para el desarrollo de la unidad 2 en clase.</p></a>
+      <a class="res-item" href="recursos/sesion2/hoja-laboratorio-estudiante-u2.docx"><span class="res-type">Laboratorio</span><span class="res-title">Hoja de Laboratorio – Estudiante U2</span><p class="res-desc">Práctica guiada para el estudiante en la unidad 2.</p></a>
+    </div>
+
+    <h3>🛠️ Sesión 3 — Metodología</h3>
+    <div class="res-list">
+      <a class="res-item" href="recursos/sesion3/clase-u3-metodologia.pptx"><span class="res-type">PPT</span><span class="res-title">Clase U3: Metodología</span><p class="res-desc">Presentación sobre metodología de la investigación aplicada al TSP.</p></a>
+    </div>
+  </div>
+</section>
+
 <section id="cta">
   <div class="big-number">2025</div>
   <h2>Lima – Perú</h2>
@@ -199,6 +268,17 @@ gsap.to('#gearImg', {
     end: 'bottom top',
     scrub: 0.5
   }
+});
+
+// Resource items reveal, grouped so each group animates independently
+document.querySelectorAll('.res-list').forEach(group => {
+  gsap.to(group.querySelectorAll('.res-item'), {
+    opacity:1, y:0, duration:0.6, stagger:0.08, ease:'power2.out',
+    scrollTrigger:{
+      trigger: group,
+      start:'top 90%'
+    }
+  });
 });
 
 // Progress bar
