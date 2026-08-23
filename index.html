@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNI - Facultad de Ingeniería Mecánica</title>
+<style>
+  :root{
+    --bg:#0b0f1a;
+    --bg2:#111827;
+    --accent:#3b82f6;
+    --accent2:#60a5fa;
+    --text:#f1f5f9;
+    --muted:#94a3b8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+  section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:6vh 6vw;
+    text-align:center;
+  }
+  h1{font-size:clamp(2rem,6vw,4rem); line-height:1.1; letter-spacing:-0.02em;}
+  h2{font-size:clamp(1.5rem,4vw,2.5rem); margin-bottom:1.5rem;}
+  p{color:var(--muted); max-width:700px; font-size:1.1rem; line-height:1.6; margin-top:1rem;}
+  .badge{
+    display:inline-block;
+    padding:.4rem 1rem;
+    border:1px solid var(--accent);
+    border-radius:999px;
+    color:var(--accent2);
+    font-size:.85rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    margin-bottom:1.5rem;
+  }
+  #hero{background:radial-gradient(circle at 50% 30%, #1e293b 0%, var(--bg) 70%);}
+  .hero-title span{display:inline-block;}
+  .scroll-hint{
+    position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+    color:var(--muted); font-size:.9rem;
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1.5rem;
+    width:100%;
+    max-width:1000px;
+    margin-top:2rem;
+  }
+  .card{
+    background:var(--bg2);
+    border:1px solid #1f2937;
+    border-radius:16px;
+    padding:2rem 1.5rem;
+    opacity:0;
+    transform:translateY(60px);
+  }
+  .card h3{color:var(--accent2); margin-bottom:.7rem; font-size:1.1rem;}
+  .card p{font-size:.95rem; margin-top:0; max-width:none;}
+  .pin-section{
+    background:var(--bg2);
+  }
+  .steps{display:flex; flex-direction:column; gap:2rem; max-width:600px; width:100%;}
+  .step{
+    background:var(--bg);
+    border-left:4px solid var(--accent);
+    padding:1.2rem 1.5rem;
+    border-radius:6px;
+    text-align:left;
+    opacity:0.2;
+  }
+  .step h4{color:var(--accent2); font-size:1rem; margin-bottom:.4rem;}
+  .step p{margin:0; font-size:.9rem; color:var(--muted);}
+  .progress-track{
+    position:fixed; top:0; left:0; height:4px; width:100%;
+    background:transparent; z-index:100;
+  }
+  .progress-bar{
+    height:100%; width:0%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+  }
+  .big-number{font-size:clamp(4rem,15vw,10rem); font-weight:bold; color:var(--accent2); opacity:.9;}
+  footer{
+    padding:3rem 1rem;
+    text-align:center;
+    color:var(--muted);
+    font-size:.85rem;
+    border-top:1px solid #1f2937;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+
+<section id="hero">
+  <svg id="gearImg" width="140" height="140" viewBox="0 0 100 100" style="position:absolute; top:12%; right:8%; opacity:.9;">
+    <path fill="#3b82f6" d="M50 6 L57 6 L59 18 A38 38 0 0 1 70 22 L80 15 L85 20 L78 30 A38 38 0 0 1 82 41 L94 43 L94 50 L82 52 A38 38 0 0 1 78 63 L85 73 L80 78 L70 71 A38 38 0 0 1 59 75 L57 87 L50 87 L43 87 L41 75 A38 38 0 0 1 30 71 L20 78 L15 73 L22 63 A38 38 0 0 1 18 52 L6 50 L6 43 L18 41 A38 38 0 0 1 22 30 L15 20 L20 15 L30 22 A38 38 0 0 1 41 18 Z M50 34 A16 16 0 1 0 50 66 A16 16 0 1 0 50 34"/>
+  </svg>
+  <div class="badge">Facultad de Ingeniería Mecánica · UNI</div>
+  <h1 class="hero-title" id="heroTitle">Trabajo de Suficiencia Profesional</h1>
+  <p>Estructura, formato APA 7 y guía de investigación para optar el título profesional.</p>
+  <div class="scroll-hint">↓ Desplázate para explorar</div>
+</section>
+
+<section id="overview">
+  <h2>Estructura General</h2>
+  <p>El documento se organiza en capítulos claramente definidos, desde las generalidades hasta los anexos.</p>
+  <div class="cards">
+    <div class="card"><h3>Capítulo I</h3><p>Generalidades: antecedentes, problema, objetivos, hipótesis y diseño metodológico.</p></div>
+    <div class="card"><h3>Capítulo II</h3><p>Marco teórico y marco conceptual: bases teóricas y definición de términos.</p></div>
+    <div class="card"><h3>Capítulo III</h3><p>Desarrollo del trabajo de investigación.</p></div>
+    <div class="card"><h3>Capítulo IV</h3><p>Resultados, contrastación de hipótesis y discusión de resultados.</p></div>
+  </div>
+</section>
+
+<section class="pin-section" id="pinned">
+  <h2>Del Problema a las Conclusiones</h2>
+  <div class="steps">
+    <div class="step"><h4>1. Generalidades</h4><p>Antecedentes, problema, justificación, objetivos e hipótesis.</p></div>
+    <div class="step"><h4>2. Marco Teórico</h4><p>Bases teóricas y marco conceptual que sustentan la investigación.</p></div>
+    <div class="step"><h4>3. Desarrollo</h4><p>Aplicación práctica del trabajo de investigación.</p></div>
+    <div class="step"><h4>4. Resultados</h4><p>Contrastación de hipótesis y discusión de resultados obtenidos.</p></div>
+    <div class="step"><h4>5. Conclusiones y Recomendaciones</h4><p>Cierre del trabajo con referencias en formato APA 7 y anexos.</p></div>
+  </div>
+</section>
+
+<section id="format">
+  <h2>Formato APA 7ma Edición</h2>
+  <div class="cards">
+    <div class="card"><h3>Márgenes</h3><p>Superior 2.54cm · Inferior 2.54cm · Izquierdo 3cm · Derecho 2.54cm</p></div>
+    <div class="card"><h3>Tipografía</h3><p>Arial · Título 14pt · Subtítulos 11pt · Texto 11pt · Tablas 9pt</p></div>
+    <div class="card"><h3>Interlineado</h3><p>Doble espacio en texto principal, sangría de 1.27cm por párrafo</p></div>
+    <div class="card"><h3>Papel</h3><p>A4: 21 x 29.7 cm, impresión a un solo lado</p></div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="big-number">2025</div>
+  <h2>Lima – Perú</h2>
+  <p>Comisión de Grados y Títulos · Universidad Nacional de Ingeniería</p>
+</section>
+
+<footer>
+  Página generada con GSAP + ScrollTrigger — lista para GitHub Pages.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero title letter reveal
+const titleEl = document.getElementById('heroTitle');
+const words = titleEl.textContent.split(' ');
+titleEl.innerHTML = words.map(w => `<span style="display:inline-block; opacity:0; transform:translateY(40px)">${w}&nbsp;</span>`).join('');
+gsap.to(titleEl.querySelectorAll('span'), {
+  opacity:1, y:0, duration:0.8, stagger:0.08, ease:'power3.out', delay:0.3
+});
+
+// Gear image: continuous spin + floating
+gsap.to('#gearImg', {
+  rotation: 360,
+  duration: 12,
+  repeat: -1,
+  ease: 'none',
+  transformOrigin: '50% 50%'
+});
+gsap.to('#gearImg', {
+  y: 20,
+  duration: 2.5,
+  repeat: -1,
+  yoyo: true,
+  ease: 'sine.inOut'
+});
+
+// Gear reacts to scroll: moves and scales down as user scrolls past hero
+gsap.to('#gearImg', {
+  x: -250,
+  y: 300,
+  scale: 0.5,
+  opacity: 0.3,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '#hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 0.5
+  }
+});
+
+// Progress bar
+gsap.to('#progressBar', {
+  width:'100%',
+  ease:'none',
+  scrollTrigger:{
+    trigger: document.body,
+    start:'top top',
+    end:'bottom bottom',
+    scrub:0.3
+  }
+});
+
+// Cards reveal
+document.querySelectorAll('.cards').forEach(group => {
+  gsap.to(group.querySelectorAll('.card'), {
+    opacity:1, y:0, duration:0.7, stagger:0.15, ease:'power2.out',
+    scrollTrigger:{
+      trigger: group,
+      start:'top 80%'
+    }
+  });
+});
+
+// Pinned steps section
+const pinSection = document.getElementById('pinned');
+const steps = gsap.utils.toArray('.step');
+
+ScrollTrigger.create({
+  trigger: pinSection,
+  start:'top top',
+  end: () => '+=' + (steps.length * 400),
+  pin:true,
+  scrub:0.5
+});
+
+steps.forEach((step, i) => {
+  gsap.timeline({
+    scrollTrigger:{
+      trigger: pinSection,
+      start: () => 'top top+=' + (i * 400),
+      end: () => 'top top+=' + ((i+1) * 400),
+      scrub:0.5
+    }
+  }).to(step, {opacity:1, x:10, duration:1})
+    .to(step, {opacity:0.2, x:0, duration:1}, i === steps.length -1 ? '+=0.3' : '+=0.5');
+});
+
+// Big number pop
+gsap.from('.big-number', {
+  scale:0.5, opacity:0, duration:1, ease:'back.out(1.7)',
+  scrollTrigger:{
+    trigger:'#cta',
+    start:'top 70%'
+  }
+});
+</script>
+</body>
+</html>
