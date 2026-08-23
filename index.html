@@ -30,6 +30,7 @@
     position:relative;
     padding:6vh 6vw;
     text-align:center;
+    scroll-margin-top:70px;
   }
   h1{font-size:clamp(2rem,6vw,4rem); line-height:1.1; letter-spacing:-0.02em;}
   h2{font-size:clamp(1.5rem,4vw,2.5rem); margin-bottom:1.5rem;}
@@ -45,7 +46,7 @@
     text-transform:uppercase;
     margin-bottom:1.5rem;
   }
-  #hero{background:radial-gradient(circle at 50% 30%, #1e293b 0%, var(--bg) 70%);}
+  #hero{background:radial-gradient(circle at 50% 30%, #1e293b 0%, var(--bg) 70%); padding-top:12vh;}
   .hero-title span{display:inline-block;}
   .scroll-hint{
     position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
@@ -84,8 +85,8 @@
   .step h4{color:var(--accent2); font-size:1rem; margin-bottom:.4rem;}
   .step p{margin:0; font-size:.9rem; color:var(--muted);}
   .progress-track{
-    position:fixed; top:0; left:0; height:4px; width:100%;
-    background:transparent; z-index:100;
+    position:fixed; top:0; left:0; height:3px; width:100%;
+    background:transparent; z-index:300;
   }
   .progress-bar{
     height:100%; width:0%;
@@ -148,9 +149,93 @@
     font-size:.85rem;
     border-top:1px solid #1f2937;
   }
+
+  /* Header */
+  header{
+    position:fixed; top:0; left:0; width:100%; z-index:200;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.8rem 5vw;
+    background:rgba(11,15,26,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #1f2937;
+  }
+  header .logo{
+    font-weight:bold; font-size:1rem; color:var(--text);
+    display:flex; align-items:center; gap:.5rem; white-space:nowrap;
+  }
+  header .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--accent2);}
+  header nav{display:flex; gap:1.6rem; flex-wrap:wrap;}
+  header nav a{
+    color:var(--muted); text-decoration:none; font-size:.85rem;
+    letter-spacing:.02em; position:relative; padding:.2rem 0;
+    transition:color .2s;
+  }
+  header nav a::after{
+    content:''; position:absolute; bottom:-4px; left:0; width:0%; height:2px;
+    background:var(--accent2); transition:width .25s;
+  }
+  header nav a:hover, header nav a.active{color:var(--text);}
+  header nav a.active::after, header nav a:hover::after{width:100%;}
+  #screwIndicator{width:26px; height:26px; flex-shrink:0;}
+
+  /* Engineering background layer */
+  #bgLayer{
+    position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  }
+  #bgLayer svg{position:absolute; opacity:.14;}
+  #bgLayer .blueprint-grid{
+    position:absolute; inset:-10%; opacity:.05;
+    background-image:
+      linear-gradient(var(--accent2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--accent2) 1px, transparent 1px);
+    background-size:60px 60px;
+  }
+  body > section, body > footer{position:relative; z-index:1;}
+  header{z-index:200;}
 </style>
 </head>
 <body>
+
+<header>
+  <div class="logo"><span class="dot"></span> FIM · UNI</div>
+  <nav id="siteNav">
+    <a href="#hero" data-target="hero">Inicio</a>
+    <a href="#overview" data-target="overview">Estructura</a>
+    <a href="#pinned" data-target="pinned">Proceso</a>
+    <a href="#format" data-target="format">Formato APA</a>
+    <a href="#recursos" data-target="recursos">Recursos</a>
+  </nav>
+  <svg id="screwIndicator" viewBox="0 0 100 100">
+    <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" fill="none" stroke="#3b82f6" stroke-width="6"/>
+    <circle cx="50" cy="50" r="14" fill="none" stroke="#60a5fa" stroke-width="6"/>
+    <line x1="50" y1="30" x2="50" y2="70" stroke="#60a5fa" stroke-width="6"/>
+  </svg>
+</header>
+
+<div id="bgLayer">
+  <div class="blueprint-grid"></div>
+  <svg class="bg-gear" data-depth="0.15" width="220" height="220" viewBox="0 0 100 100" style="top:8%; left:4%;">
+    <path fill="#3b82f6" d="M50 6 L57 6 L59 18 A38 38 0 0 1 70 22 L80 15 L85 20 L78 30 A38 38 0 0 1 82 41 L94 43 L94 50 L82 52 A38 38 0 0 1 78 63 L85 73 L80 78 L70 71 A38 38 0 0 1 59 75 L57 87 L50 87 L43 87 L41 75 A38 38 0 0 1 30 71 L20 78 L15 73 L22 63 A38 38 0 0 1 18 52 L6 50 L6 43 L18 41 A38 38 0 0 1 22 30 L15 20 L20 15 L30 22 A38 38 0 0 1 41 18 Z M50 34 A16 16 0 1 0 50 66 A16 16 0 1 0 50 34"/>
+  </svg>
+  <svg class="bg-gear" data-depth="0.3" width="140" height="140" viewBox="0 0 100 100" style="top:38%; right:6%;">
+    <path fill="#60a5fa" d="M50 6 L57 6 L59 18 A38 38 0 0 1 70 22 L80 15 L85 20 L78 30 A38 38 0 0 1 82 41 L94 43 L94 50 L82 52 A38 38 0 0 1 78 63 L85 73 L80 78 L70 71 A38 38 0 0 1 59 75 L57 87 L50 87 L43 87 L41 75 A38 38 0 0 1 30 71 L20 78 L15 73 L22 63 A38 38 0 0 1 18 52 L6 50 L6 43 L18 41 A38 38 0 0 1 22 30 L15 20 L20 15 L30 22 A38 38 0 0 1 41 18 Z M50 34 A16 16 0 1 0 50 66 A16 16 0 1 0 50 34"/>
+  </svg>
+  <svg class="bg-bolt" data-depth="0.2" width="90" height="90" viewBox="0 0 100 100" style="top:65%; left:12%;">
+    <polygon fill="#3b82f6" points="50,4 93,27 93,73 50,96 7,73 7,27"/>
+    <circle cx="50" cy="50" r="20" fill="#0b0f1a"/>
+  </svg>
+  <svg class="bg-bolt" data-depth="0.35" width="60" height="60" viewBox="0 0 100 100" style="top:15%; right:22%;">
+    <polygon fill="#60a5fa" points="50,4 93,27 93,73 50,96 7,73 7,27"/>
+    <circle cx="50" cy="50" r="20" fill="#0b0f1a"/>
+  </svg>
+  <svg class="bg-gear" data-depth="0.22" width="180" height="180" viewBox="0 0 100 100" style="top:82%; right:10%;">
+    <path fill="#3b82f6" d="M50 6 L57 6 L59 18 A38 38 0 0 1 70 22 L80 15 L85 20 L78 30 A38 38 0 0 1 82 41 L94 43 L94 50 L82 52 A38 38 0 0 1 78 63 L85 73 L80 78 L70 71 A38 38 0 0 1 59 75 L57 87 L50 87 L43 87 L41 75 A38 38 0 0 1 30 71 L20 78 L15 73 L22 63 A38 38 0 0 1 18 52 L6 50 L6 43 L18 41 A38 38 0 0 1 22 30 L15 20 L20 15 L30 22 A38 38 0 0 1 41 18 Z M50 34 A16 16 0 1 0 50 66 A16 16 0 1 0 50 34"/>
+  </svg>
+  <svg class="bg-bolt" data-depth="0.4" width="70" height="70" viewBox="0 0 100 100" style="top:50%; left:45%;">
+    <polygon fill="#3b82f6" points="50,4 93,27 93,73 50,96 7,73 7,27"/>
+    <circle cx="50" cy="50" r="20" fill="#0b0f1a"/>
+  </svg>
+</div>
 
 <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
 
@@ -360,6 +445,53 @@ tabBtns.forEach(btn => {
     });
   });
 });
+
+// Screw/bolt scroll indicator: rotates like a screw being turned as the page scrolls
+gsap.to('#screwIndicator', {
+  rotation: 720,
+  ease: 'none',
+  transformOrigin: '50% 50%',
+  scrollTrigger: {
+    trigger: document.body,
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 0.3
+  }
+});
+
+// Engineering background: gears/bolts drift and rotate at different depths while scrolling
+gsap.utils.toArray('#bgLayer .bg-gear, #bgLayer .bg-bolt').forEach(el => {
+  const depth = parseFloat(el.dataset.depth) || 0.2;
+  gsap.to(el, {
+    y: () => -document.body.scrollHeight * depth * 0.4,
+    rotation: el.classList.contains('bg-gear') ? 360 : -180,
+    ease: 'none',
+    transformOrigin: '50% 50%',
+    scrollTrigger: {
+      trigger: document.body,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.6
+    }
+  });
+});
+
+// Header nav: smooth scroll + active link highlighting
+document.querySelectorAll('#siteNav a').forEach(link => {
+  const target = document.getElementById(link.dataset.target);
+  if (!target) return;
+  ScrollTrigger.create({
+    trigger: target,
+    start: 'top 40%',
+    end: 'bottom 40%',
+    onEnter: () => setActiveLink(link),
+    onEnterBack: () => setActiveLink(link)
+  });
+});
+function setActiveLink(activeLink){
+  document.querySelectorAll('#siteNav a').forEach(a => a.classList.remove('active'));
+  activeLink.classList.add('active');
+}
 
 // Progress bar
 gsap.to('#progressBar', {
