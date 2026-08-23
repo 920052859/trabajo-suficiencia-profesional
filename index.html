@@ -150,6 +150,22 @@
     border-top:1px solid #1f2937;
   }
 
+  /* Custom cursor */
+  @media (hover:hover) and (pointer:fine){
+    html, body, a, button{cursor:none !important;}
+  }
+  #customCursor{
+    position:fixed; top:0; left:0; width:34px; height:34px;
+    pointer-events:none; z-index:9999;
+    transform:translate(-50%,-50%);
+    will-change:transform;
+  }
+  #customCursor svg{width:100%; height:100%; display:block;}
+  #customCursor .cursor-gear{transform-origin:50% 50%;}
+  #customCursor .cursor-flag{opacity:0; transform-origin:8% 90%;}
+  #customCursor.hovering .cursor-gear{opacity:0;}
+  #customCursor.hovering .cursor-flag{opacity:1;}
+
   /* Header */
   header{
     position:fixed; top:0; left:0; width:100%; z-index:200;
@@ -195,6 +211,19 @@
 </style>
 </head>
 <body>
+
+<div id="customCursor">
+  <svg viewBox="0 0 100 100">
+    <g class="cursor-gear">
+      <path fill="#60a5fa" d="M50 6 L57 6 L59 18 A38 38 0 0 1 70 22 L80 15 L85 20 L78 30 A38 38 0 0 1 82 41 L94 43 L94 50 L82 52 A38 38 0 0 1 78 63 L85 73 L80 78 L70 71 A38 38 0 0 1 59 75 L57 87 L50 87 L43 87 L41 75 A38 38 0 0 1 30 71 L20 78 L15 73 L22 63 A38 38 0 0 1 18 52 L6 50 L6 43 L18 41 A38 38 0 0 1 22 30 L15 20 L20 15 L30 22 A38 38 0 0 1 41 18 Z M50 34 A16 16 0 1 0 50 66 A16 16 0 1 0 50 34"/>
+    </g>
+    <g class="cursor-flag">
+      <line x1="12" y1="8" x2="12" y2="92" stroke="#60a5fa" stroke-width="7" stroke-linecap="round"/>
+      <path fill="#3b82f6" d="M18 12 L82 12 L66 30 L82 48 L18 48 Z"/>
+      <circle cx="12" cy="92" r="8" fill="#60a5fa"/>
+    </g>
+  </svg>
+</div>
 
 <header>
   <div class="logo"><span class="dot"></span> FIM · UNI</div>
@@ -355,7 +384,7 @@
 </section>
 
 <section id="cta">
-  <div class="big-number">2025</div>
+  <div class="big-number">2026</div>
   <h2>Lima – Perú</h2>
   <p>Comisión de Grados y Títulos · Universidad Nacional de Ingeniería</p>
 </section>
@@ -368,6 +397,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
+
+// Custom cursor: gear that follows the mouse with smooth lag and spins continuously;
+// swaps to a "finish line" flag over interactive elements (link the cursor to executing/finishing the thesis)
+const cursorEl = document.getElementById('customCursor');
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  const cursorPos = {x: window.innerWidth/2, y: window.innerHeight/2};
+  gsap.set(cursorEl, {x: cursorPos.x, y: cursorPos.y});
+
+  window.addEventListener('mousemove', e => {
+    cursorPos.x = e.clientX;
+    cursorPos.y = e.clientY;
+  });
+
+  gsap.ticker.add(() => {
+    gsap.to(cursorEl, {x: cursorPos.x, y: cursorPos.y, duration:0.35, ease:'power2.out', overwrite:'auto'});
+  });
+
+  gsap.to('#customCursor .cursor-gear', {
+    rotation: 360, duration: 4, repeat: -1, ease: 'none'
+  });
+
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button, .res-item, .tab-btn')) {
+      cursorEl.classList.add('hovering');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button, .res-item, .tab-btn')) {
+      cursorEl.classList.remove('hovering');
+    }
+  });
+} else {
+  cursorEl.style.display = 'none';
+}
 
 // Hero title letter reveal
 const titleEl = document.getElementById('heroTitle');
