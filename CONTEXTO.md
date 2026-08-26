@@ -28,7 +28,7 @@ Basado en el documento "Estructura del Trabajo de Suficiencia Profesional" (Dr. 
 6. **Proceso** (`#pinned`): sección pineada con scroll-scrubbed steps (Generalidades → Marco Teórico → Desarrollo → Resultados → Conclusiones).
 7. **Formato APA** (`#format`): tarjetas de márgenes, tipografía, interlineado, papel (basado en especificaciones APA 7 del PDF original).
 8. **Fuentes** (`#fuentes`): buscadores/bases de datos internacionales (Google Scholar, Scopus, Web of Science, IEEE Xplore, ScienceDirect, SpringerLink, MDPI, arXiv, ResearchGate, SciELO) y repositorios peruanos (ALICIA-Concytec, RENATI-Sunedu, Cybertesis UNI, Repositorio PUCP, Cybertesis UNMSM, Concytec).
-9. **Recursos del Curso** (`#recursos`): sistema de pestañas General / Sesión 1 / Sesión 2 / Sesión 3 / Sesión 4 / Sesión 5, con transición animada GSAP. Sesiones 4 y 5 muestran placeholder "Próximamente" (no había material en la carpeta fuente).
+9. **Recursos del Curso** (`#recursos`): sistema de pestañas General / Sesión 1 / Sesión 2 / Sesión 3 / Sesión 4 / Sesión 5 / Sesión 6 / Sesión 7 / Sesión 8, con transición animada GSAP. Cada sesión incluye una guía tentativa con producto y dinámica; las sesiones 5 a 8 comienzan con planificación y recursos progresivos.
 10. **CTA** (`#cta`): "2026 · Lima – Perú" (corregido de 2025 a 2026).
 11. **Sobre la autora** (`#autora`): bio corta + botón LinkedIn (pendiente URL real).
 12. **Footer**: crédito discreto "© Corina Lazo · Recursos para la comunidad FIM-UNI" (se eliminó la línea "Página generada con GSAP...").
@@ -39,8 +39,10 @@ Copiados y renombrados desde la carpeta fuente, **excluyendo** automatizaciones 
 
 - `recursos/general/` — sílabos, programa TSP, guías, libros de metodología (Baena 2017, Tesis Fácil), MT616 IA.
 - `recursos/sesion1/` — PPT, guía docente, laboratorio, plantillas (acta de constitución, plantilla APA), artículo Dialnet.
-- `recursos/sesion2/` — PPT, guía docente, laboratorio.
-- `recursos/sesion3/` — PPT.
+- `recursos/sesion2/` — PPT, guía docente, laboratorio y guía tentativa.
+- `recursos/sesion3/` — PPT y guía tentativa.
+- `recursos/sesion4/` — PPT, guía docente y guía tentativa de redacción académica.
+- `recursos/sesion5/` a `recursos/sesion8/` — guías tentativas con temario, dinámicas y entregables para completar el TSP y preparar la sustentación.
 
 Tamaño total aprox. 47MB (dentro de límites de GitHub).
 
@@ -60,5 +62,5 @@ Tamaño total aprox. 47MB (dentro de límites de GitHub).
 ## Pendientes
 
 - [ ] URL real de LinkedIn de Corina Lazo y confirmación/ajuste de la frase de bio en `#autora`.
-- [ ] Material de Sesión 4 y Sesión 5 (actualmente placeholder "Próximamente").
+- [ ] Material complementario de Sesiones 5 a 8 (presentaciones, laboratorios y plantillas).
 - [ ] Confirmar si se desea agregar grabaciones Webex de sesiones 2 y 3 (la usuaria indicó que solo tiene la de la sesión 1).
